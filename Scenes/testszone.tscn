@@ -1,6 +1,30 @@
 [gd_scene format=3 uid="uid://ds3grd4mmdc6m"]
 
+[ext_resource type="Texture2D" uid="uid://cpdvm47m7v2j5" path="res://Assets/sprites/platforms.png" id="1_4e8ts"]
+[ext_resource type="PackedScene" uid="uid://c16yli0qvn1fn" path="res://Scenes/jugador.tscn" id="2_43n8o"]
+[ext_resource type="PackedScene" uid="uid://bg24w1u338lvh" path="res://Scenes/moneda.tscn" id="3_43n8o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whggi"]
+size = Vector2(1155.25, 115)
+
 [node name="Node2D" type="Node2D" unique_id=1292389440]
 
 [node name="TileMap" type="TileMap" parent="." unique_id=318294521]
 format = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=720447790]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=155525724]
+position = Vector2(578.375, 682)
+shape = SubResource("RectangleShape2D_whggi")
+
+[node name="Jugador" parent="StaticBody2D" unique_id=1819728878 instance=ExtResource("2_43n8o")]
+position = Vector2(192, 594)
+
+[node name="Platforms" type="Sprite2D" parent="." unique_id=1160014196]
+position = Vector2(788, 868)
+scale = Vector2(25.070313, 7.546875)
+texture = ExtResource("1_4e8ts")
+
+[node name="Moneda" parent="." unique_id=1560624455 instance=ExtResource("3_43n8o")]
+position = Vector2(470, 599)
